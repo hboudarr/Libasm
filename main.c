@@ -6,7 +6,7 @@
 /*   By: hboudarr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/22 16:57:28 by hboudarr          #+#    #+#             */
-/*   Updated: 2020/05/22 18:50:13 by hboudarr         ###   ########.fr       */
+/*   Updated: 2020/05/24 16:52:56 by hboudarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	check_strcpy(void)
 //	printf("	 fcpy: %s\n", ft_strcpy(buff, NULL));
 	printf("\n");
 }
-*/
+
 void	check_strcmp(void)
 {
 	char	s1[] = "hello";
@@ -132,7 +132,7 @@ void	check_strcmp(void)
 	printf("	cmp : %i\n", strcmp(s1, s0));
 	printf("	fcmp : %i\n", ft_strcmp(s1, s0));
 }
-/*
+*/
 void	check_write(void)
 {
 	int	fd;
@@ -144,8 +144,6 @@ void	check_write(void)
 	fd2 = open("./test", O_RDONLY);
 	
 	printf("----------------------------------\n");
-	printf(GREEN"ft_write :"RESET"\n");
-	printf(YELLOW"	str = \"abc\""RESET"\n");
 	str = "abc";
 	// 9 : Bad file descriptor (RDONLY)
 	errno = 0;
@@ -232,7 +230,6 @@ void	check_write(void)
 	printf("\n");
 
 	str = NULL;
-	printf(YELLOW"	str = NULL"RESET"\n");
 	errno = 0;
 	printf("		|wr : %zd\n", write(1, str, 0));
 	printf("		%i : %s\n", errno, strerror(errno));
@@ -282,7 +279,6 @@ void	check_write(void)
 	printf("\n");
 
 	str = "";
-	printf(YELLOW"	str = \"\""RESET"\n");
 	errno = 0;
 	printf("		|wr : %zd\n", write(1, str, 0));
 	printf("		%i : %s\n", errno, strerror(errno));
@@ -379,7 +375,7 @@ void	check_write(void)
 	printf("		%i : %s\n", errno, strerror(errno));
 	printf("\n");
 }
-
+/*
 void	check_read(void)
 {
 	int	fd;
@@ -641,8 +637,8 @@ int	main(void)
 {
 //	check_strlen();
 //	check_strcpy();
-	check_strcmp();
-//	check_write();
+//	check_strcmp();
+	check_write();
 //	check_read();
 //	check_strdup();
 	return (0);
