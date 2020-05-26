@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main2.c                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hboudarr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/25 17:40:48 by hboudarr          #+#    #+#             */
-/*   Updated: 2020/05/25 18:28:07 by hboudarr         ###   ########.fr       */
+/*   Created: 2020/05/26 13:55:59 by hboudarr          #+#    #+#             */
+/*   Updated: 2020/05/26 14:54:54 by hboudarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	check_strlen()
 	printf("len : %d\n", strlen(s1));
 	printf("len : %d\n", ft_strlen(s1));
 }
-*/
+
 void	check_strcpy()
 {
 	char s1[] = "salut";
@@ -32,7 +32,7 @@ void	check_strcpy()
 	printf("%s\n", strcpy(s1, s2));
 //	printf("%s\n", ft_strcpy(s1, s2));
 }
-/*
+
 void	check_strcmp()
 {
 	char *s1 = "salut";
@@ -69,12 +69,24 @@ void	check_read()
 }
 */
 
+void	check_strdup()
+{
+	char test[] = "coucoutoi";
+	char *try = "";
+	char *essai = NULL;
+
+	printf("\nFT_STRDUP\n");
+	printf("%s\n", strdup(test));
+//	printf("%s\n", ft_strdup(try));
+}
+
 int main()
 {
 //	check_strlen();
-	check_strcpy();
+//	check_strcpy();
 //	check_strcmp();
 //	check_write();
 //	check_read();
+	check_strdup();
 	return(0);
 }
