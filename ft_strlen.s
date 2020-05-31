@@ -18,9 +18,9 @@ _ft_strlen:	xor		rax, rax  ; i = 0
 			jmp		loop
 
 loop:		cmp 	byte [rdi + rax], 0 ; compare str[i] a \0
-			je		end					; si c'est egal
+			je		end					; if equal jump to end
 			inc 	rax					; i++
-			jmp		loop
+			jmp		loop				; jump to loop
 
 end:
 			ret

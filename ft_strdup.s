@@ -23,10 +23,10 @@
 _ft_strdup:		xor			rax, rax
 				call		_ft_strlen  ; len for malloc
 				push		rdi			; save string for malloc
-				inc			rax			; +1 for \0
+				inc			rax			; i++ for \0
 				mov			rdi, rax	
 				call		_malloc
-				pop 		r8			; string back
+				pop 		r8			; string back in empty register
 				mov			rdi, rax
 				mov			rsi, r8
 				call		_ft_strcpy

@@ -15,17 +15,17 @@
 
 				section		.text
 
-_ft_write:		mov		rax, 0x2000004    ; code syscall pour write MacOS
+_ft_write:		mov		rax, 0x2000004    ; syscall code for write on MacOS
 			syscall	
-				jc		end_err			  ; si CF = carry flag = 1 jump at end_err
+				jc		end_err			  ;jc = if CF = carry flag = 1 jump at end_err
 				ret
 
 
 
-end_err:		mov		rbx, rax		; rax qui content la valeur de retour on la stock temporairement dans un autre registre
-				push	rbx				; on push rbx sur la stack pour pas que call error change la valeur
-				call 	___error		; call error est une fonction qui utilise des registres, on sait pas lequel donc on push et pop pour la sauvagarder et la recuperer derriere
-				pop		rbx
-				mov 	[rax], rbx		; l'erreur retourne un pointeur sur int, donc on met la valeur de rbx la ou pointe rax
-				mov		rax, -1			; on ecrase la velur de rax pour y mettre -1
+end_err:		mov		rbx, rax		; we stock the return value in an other register, rbx
+				push	rbx				; pushing the value of rbx on the stack before call err
+				call 	___error		; call error is a fonction who use registers, but we don't know wich one so we use the stack for save our value
+				pop		rbx				; back
+				mov 	[rax], rbx		; err returne int pointer, put the value of rbx where the err pointed
+				mov		rax, -1			; we "ecrase" the value by -!
 				ret

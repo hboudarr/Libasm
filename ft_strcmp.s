@@ -18,22 +18,19 @@ _ft_strcmp:		xor		rax, rax
 				xor		rbx, rbx
 				cld
 
-loop:			mov		al, byte [rdi]
+loop:			mov		al, byte [rdi] 	; low byte, value of char
 				mov		bl, byte [rsi]
-				cmp 	al, 0
-				je		end
+				cmp 	al, 0			; compare to 0 (end of strings)
+				je		end				; if equal jump to end
 				cmp		bl, 0
 				je		end
-				cmp		al, bl
-				jne		end
-				inc		rdi
+				cmp		al, bl			; compare the value of each strings char
+				jne		end				; if not equal jump to end
+				inc		rdi				; next char
 				inc		rsi
-				jmp		loop
+				jmp		loop			; again
 
-end:			movzx	rax, al
+end:			movzx	rax, al			; movzx = copy smaller register in a bigger and complete it with 0
 				movzx	rbx, bl
-				sub		rax, rbx
+				sub		rax, rbx		; substraction for compare
 				ret
-; on recupere le low byte, la ou est stocker la valuer du char
-; on le compare a 0, si c'est pas la gfin de la chaine
-; movzx : permet de copier un plus petit registre dans un autre plus gros et de remplir le reste de 0. 

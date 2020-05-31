@@ -28,3 +28,4 @@ end_err:		mov			rbx, rax
 				mov 		[rax], rbx
 				mov			rax, -1
 				ret
+; if you need explications, please check comment of ft_write.s
